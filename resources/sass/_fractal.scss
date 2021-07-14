@@ -1,0 +1,188 @@
+#fractal_main-box{
+    
+    padding: 0.2rem;
+
+    #fractal_dashboard{
+        @extend .col-xl-2;
+        position: relative;
+        background-color: $gray-500;
+        margin-left: 0.1rem;
+        border: 0.15rem $gray-700 solid;
+        border-radius: 0.3rem;
+button.btn{
+    color: $blue-400;
+    background-color: $gray-800;
+    border: 0.1rem black solid;
+    &:hover{
+        border: 0.1rem $cyan-700 solid;
+        color: $blue-200;
+    }&:active{
+    color: $cyan-700;
+    background-color:black;
+    box-shadow: 0 0 0 0.15rem $gray-900;
+    }
+    &:focus{
+        box-shadow: 0 0 0 0.15rem $gray-800;
+    }
+}
+button.btn-toggler{
+            position: absolute;
+            right: 0.75rem;
+            top: 0.5rem;
+            color:$gray-300;
+            };
+///////Mset//////////            
+#mode-select{
+    @extend .form-control;
+    border: 0.1rem $gray-800 solid;
+    background-color: $gray-300;
+    margin-bottom: 0.15rem;
+   &:hover{
+    border: 0.1rem $cyan-600 solid;
+    &:focus{
+    box-shadow: 0 0 0 0.1rem $gray-800;
+    }
+   }
+option{
+    background-color: $gray-700;
+    color: $yellow-500;
+}
+};
+input[type = "text"]{
+    @extend .form-control;
+}
+input.form-control:focus{
+    box-shadow: 0 0 0 0.1rem $gray-800;
+}
+
+////////////////////
+
+     &:hover{
+            border: 0.15rem $cyan-600 solid;
+        }
+        #fractal_dashboard__description{
+            background-color: $gray-700;
+            color: $yellow-500;
+            border: 0.1rem $cyan-700 solid;
+            border-radius: 0.3rem;
+            text-align: center;
+        };
+
+    };
+    };
+    #fractal_canvas-box{
+        @extend .col-xl-12;
+        position: relative;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $gray-400;
+        border: 0.15rem $gray-100 solid;
+        border-radius: 0.3rem;
+        &:hover{
+            border:0.15rem $cyan-500 solid;
+        }
+        #fractal_canvas-zoom{
+            @extend .list-group;
+            position: absolute;
+            top: 1.5rem;
+            left: 0.5rem;
+            padding: 0;
+            width: 1.5em;
+            height: 1.5em;
+            
+          >i{
+            display: block;
+            z-index: 15;
+            color: $cyan-600;
+            margin-top: 0.4rem;
+            &:hover{
+                color: $cyan-400;
+            };
+            &:active{
+                color:$red-800;
+            }
+          }  
+    };
+    #fractal_title-box{
+        @extend .col-xl-12;
+     }
+
+}
+
+
+
+///////input type ="range"//////
+.range-slider{
+    width: 100%;
+    margin-bottom: 0.5rem;
+    margin-top: 0.25rem;
+    
+   
+};
+
+.range-slider__range {
+    @include bg-gradient(90deg,$cyan-200, $cyan-900, 65%);
+    -webkit-appearance: none;
+    width: calc(100% - (#{$range-label-width + 1rem}));
+    height: $range-track-height;
+    border-radius: 0.4rem;
+    outline: none;
+    padding: 0;
+    margin: 0;
+  
+    &::-webkit-slider-thumb {
+      appearance: none;
+      width: $range-handle-size;
+      height: $range-handle-size;
+      border-radius: 50%;
+      background: $range-handle-color;
+      cursor: pointer;
+  
+      &:hover {
+        background: $range-handle-color-hover;
+      }
+    }
+  
+    &:active::-webkit-slider-thumb {
+      background: $range-handle-color-hover;
+    }
+  
+    &:focus {
+      &::-webkit-slider-thumb {
+        box-shadow: 0 0 0 0.12rem $gray-700,
+                    0 0 0 0.3rem $cyan-600;
+      }
+    }
+  };
+  .range-slider__value {
+    display: inline-block;
+    position: relative;
+    width: $range-label-width;
+    color: $yellow-400;
+    line-height: 1.3rem;
+    font-size: 0.8rem;
+    text-align: center;
+    border-radius: 0.15rem;
+    background: $range-label-color;
+    padding: 0.25rem 0.5rem;
+    margin-left: 0.4rem;
+  
+    &:after {
+      position: absolute;
+      top: 0.4rem;
+      left: -0.4rem;
+      width: 0;
+      height: 0;
+      border-top: 0.5rem solid transparent;
+      border-right: 0.5rem solid $range-label-color;
+      border-bottom: 0.5rem solid transparent;
+      content: '';
+    }
+  };
+  .range-slider__title{
+      width: 80%;
+      font-size: 0.8rem;
+      color: $range-label-color;
+  }
+  ////////////////

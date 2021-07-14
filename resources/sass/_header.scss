@@ -1,0 +1,80 @@
+#header {
+  
+    @extend .fixed-top;
+    @include bg-gradient(30deg,$teal-200, #000, 24%);
+    a#app-logo{
+        @extend .fw-bolder;
+        @include text-gradient(15deg,$red-500,$cyan-400, 35%);
+        font-size: 2.5rem;
+        margin-right: 10%;
+        &:hover{
+             @include text-gradient(5deg,$red-600, $cyan-500, 50%);
+             text-shadow: 0 0 3px $red-700, 0 0 5px $teal-400;
+                    }
+            };
+
+    #navbarDropdown + ul.dropdown-menu.show{
+    @include bg-gradient(30deg,$cyan-200,#000, 15%);
+    li>a{
+        @extend .dropdown-item;
+        font-style: italic;
+        color: $warning;
+        &:hover{
+            @include bg-gradient(30deg,$cyan-200, #000, 85%);
+            color: $red-600;
+        }
+    }
+    
+
+    }
+    ul.navbar-nav{
+        margin-left: 1rem;
+        margin-right: 6.5rem;
+        li.nav-item {
+            white-space: nowrap;
+            margin-left: 0.3rem;
+            margin-right: 0.3rem;
+            &:not(.dropdown){
+                margin-top: 0.3rem;
+            a{ 
+                
+                 color : $cyan-400;
+                 font-size: 1.2rem;
+                 font-style: italic ;
+                 text-decoration-color: transparent;
+                text-decoration-style: solid;
+                text-decoration-line: underline;
+                transition: text-decoration-color 1s ease;
+                 &:hover{
+                    color: $indigo-100;
+                    text-shadow: 0 0 2px $red-100, 0 0 2px $orange-100;
+                    text-decoration-color : $cyan-500;
+                 }
+            }
+        }
+     }
+        
+    } 
+    div.navbar-nav {
+        margin-left: 1rem;
+            a{ 
+                @extend .nav-link;
+                @extend .text-info;
+                 font-size: 1rem;
+                 &:hover{
+                    color: $indigo-100;
+                    text-shadow: 0 0 6px $red-100, 0 0 2px $orange-100;
+             }
+
+    };
+    };         
+   #header_search-form{
+    @extend .d-flex;
+       input{
+        @extend .form-control;
+        margin-right: 0.1rem;
+        min-width:12rem; 
+       }
+     
+   };
+};

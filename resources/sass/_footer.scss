@@ -1,0 +1,52 @@
+.site-footer
+{
+  position: relative;
+  margin-left: 0;
+  margin-right: 0;
+  background-color:$gray-800;
+  padding:3rem 0 1.2rem;
+  font-size:1rem;
+  line-height:1.5rem;
+  color:#737373;
+   a{
+    text-decoration:none;
+   }
+};
+.footer-links li
+{
+  list-style:none;
+  a{
+    color:$cyan-600;
+    transition: color 0.75s ease;
+    &:hover{
+       color: $gray-300;
+        }
+    }
+};
+.social-icons {
+    text-align: right;
+    margin-right: 2rem;
+    li{
+         list-style:none;
+         display:inline-block;
+         text-align: right;
+         margin-left: 0.5rem;     
+    };
+    a{
+     border-radius:100%;
+     font-size:1rem;
+     color:#818a91;
+    }
+ a.facebook:hover{
+   color : $blue-500;
+    };
+ a.twitter:hover{
+    color:$cyan-500
+    };
+ a.linkedin:hover{
+    color :$blue-400
+    };
+a.github:hover{
+    color:$gray-100
+    }
+}

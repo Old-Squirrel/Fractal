@@ -1,0 +1,57 @@
+@import url('https:fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
+@import "/var/www/fractal/node_modules/bootstrap/scss/bootstrap";
+
+///_variables///
+$enable-gradients : true;
+$enable-shadows :true;
+$enable-negative-margins : true;
+
+$madison : #2c3e50 !default; 
+$range-width: 100% !default;
+
+$range-handle-color: $gray-700 !default;
+$range-handle-color-hover: $cyan-700 !default;
+$range-handle-size: 1rem !default;
+
+$range-track-height: 0.4rem !default;
+
+$range-label-color: $madison !default;
+$range-label-width: 2rem !default;
+
+
+///_functions///
+@mixin text-gradient($degree, $colorOne, $colorTwo, $percentage){
+    background: -webkit-linear-gradient($degree, $colorOne, $colorTwo $percentage);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    };
+@mixin bg-gradient($degree, $colorOne, $colorTwo, $percentage){
+    background-image: linear-gradient($degree, $colorOne, $colorTwo $percentage);
+}
+///////common/////
+#content{
+    @include bg-gradient(150deg,$teal-200, #000, 12%); 
+    min-height:400px;
+    position: relative;
+    margin-top: 5rem;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0.25rem;
+};
+.btn-toggler{
+    @extend .btn;
+    @extend .btn-outline-dark;
+    @extend .btn-sm;
+    >i {
+        display: block;
+    }
+    &[aria-expanded = true] > i {
+        transform: rotate(-0.25turn);
+        transition-duration: 0.5s;
+    }
+    &[aria-expanded = false] > i {
+        transform: rotate(0turn);
+        transition-duration: 0.5s;
+    }
+};
