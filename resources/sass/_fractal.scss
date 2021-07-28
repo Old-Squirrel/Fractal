@@ -50,11 +50,14 @@ option{
 };
 input[type = "text"]{
     @extend .form-control;
+
 }
 input.form-control:focus{
     box-shadow: 0 0 0 0.1rem $gray-800;
 }
-
+span.input-group-text{
+  color: $blue-700;
+}
 ////////////////////
 
      &:hover{
@@ -82,6 +85,10 @@ input.form-control:focus{
         &:hover{
             border:0.15rem $cyan-500 solid;
         }
+        #layer{
+          width: 100%;
+          height: 100%;
+        };
         #fractal_canvas-zoom{
             @extend .list-group;
             position: absolute;

@@ -18,7 +18,7 @@
                                 <i class="bi bi-zoom-out" role="button" id="zoom-out-btn" title="zoom-out"></i>
 
                             </div>
-                            <canvas id="layer" width=1000 height = 1000></canvas>
+                            <canvas id="layer" width=1160 height = 1160></canvas>
                     </div>
                 </div>
             </div>
