@@ -1,0 +1,393 @@
+@import 'tailwindcss';
+@import '../../vendor/livewire/flux/dist/flux.css';
+
+@source '../views';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../vendor/livewire/flux-pro/stubs/**/*.blade.php';
+@source '../../vendor/livewire/flux/stubs/**/*.blade.php';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+    --color-zinc-50: #fafafa;
+    --color-zinc-100: #f5f5f5;
+    --color-zinc-200: #e5e5e5;
+    --color-zinc-300: #d4d4d4;
+    --color-zinc-400: #a3a3a3;
+    --color-zinc-500: #737373;
+    --color-zinc-600: #525252;
+    --color-zinc-700: #404040;
+    --color-zinc-800: #262626;
+    --color-zinc-900: #171717;
+    --color-zinc-950: #0a0a0a;
+
+    --color-accent: var(--color-neutral-800);
+    --color-accent-content: var(--color-neutral-800);
+    --color-accent-foreground: var(--color-white);
+}
+
+@layer theme {
+    .dark {
+        --color-accent: var(--color-white);
+        --color-accent-content: var(--color-white);
+        --color-accent-foreground: var(--color-neutral-800);
+    }
+}
+
+@layer base {
+
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentColor);
+    }
+}
+
+[data-flux-field]:not(ui-radio, ui-checkbox) {
+    @apply grid gap-2;
+}
+
+[data-flux-label] {
+    @apply !mb-0 !leading-tight;
+}
+
+input:focus[data-flux-control],
+textarea:focus[data-flux-control],
+select:focus[data-flux-control] {
+    @apply outline-hidden ring-2 ring-accent ring-offset-2 ring-offset-accent-foreground;
+}
+
+/* \[:where(&)\]:size-4 {
+    @apply size-4;
+} */
+
+.main-border {
+    border: #00fff1 solid 1px;
+    border-radius: 4px;
+}
+
+.controll-panel {
+    @apply w-1/4 flex items-start;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    border-right: 2px solid #00fff1;
+}
+
+.control-panel_actions {
+    display: flex;
+    width: 100%;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.control-panel_btn {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 0.375rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out,
+                box-shadow 0.2s ease-in-out;
+}
+
+.control-panel_btn__start {
+    color: #ffffff;
+    background-color: #16a34a;
+}
+
+.control-panel_btn__start:hover {
+    background-color: #15803d;
+    box-shadow: 0 0 12px #16a34a60;
+}
+
+.control-panel_btn__stop {
+    color: #ffffff;
+    background-color: #dc2626;
+}
+
+.control-panel_btn__stop:hover {
+    background-color: #b91c1c;
+    box-shadow: 0 0 12px #dc262660;
+}
+
+.control-panel_btn__clear {
+    color: #ffffff;
+    background-color: #ca8a04;
+}
+
+.control-panel_btn__clear:hover {
+    background-color: #a16207;
+    box-shadow: 0 0 12px #ca8a0460;
+}
+
+.mlr-21 {
+    margin-left: 2rem;
+    margin-right: 1rem;
+}
+
+.zoom-buttons {
+    @apply w-1/4 text-start absolute hover:cursor-pointer;
+    top: 1rem;
+    left: 1rem;
+    color: #00fff1;
+    font-weight: 800;
+    font-size: 1.5rem;
+}
+
+.input-description {
+    @apply text-black inline-flex items-center px-3 py-2 text-sm bg-gray-100 border border-r-0 border-gray-300
+}
+
+.input-text {
+    @apply flex-1 px-3 py-2 border border-gray-300 rounded-r-md text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500
+}
+
+.smart-header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    font-size: 0.875rem;
+    padding: 1rem 1.5rem;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.4s ease-in-out,
+                backdrop-filter 0.4s ease-in-out;
+    will-change: transform, opacity;
+}
+
+.smart-header_nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.smart-header_link {
+    display: inline-block;
+    padding: 0.375rem 1.25rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    border-radius: 0.125rem;
+    color: #0891b2;
+    transition: background-color 0.2s ease-in-out,
+                color 0.2s ease-in-out,
+                box-shadow 0.2s ease-in-out;
+}
+
+.smart-header_link:hover {
+    color: #06b6d4;
+    background-color: #06b6d414;
+    box-shadow: 0 0 12px #06b6d440;
+}
+
+.smart-header__hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+    backdrop-filter: blur(0px);
+    pointer-events: none;
+}
+
+.smart-header__visible {
+    transform: translateY(0);
+    opacity: 1;
+    backdrop-filter: blur(12px);
+}
+
+.fractal-board {
+    width: 100%;
+    max-width: 75rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+    padding: 1.5rem;
+    background-color: #171717;
+}
+
+@media (max-width: 1200px) {
+    .fractal-board {
+        max-width: 100%;
+        padding: 1rem;
+    }
+}
+
+.fractal-board_title-wrapper {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin-bottom: 0.75rem;
+}
+
+.fractal-board_card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    aspect-ratio: 16 / 10;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background-color: #262626;
+    box-shadow: 0 4px 6px -1px #00000030, 0 2px 4px -2px #00000030;
+    isolation: isolate;
+}
+
+.fractal-board_card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("../images/fractal-icon-5.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.6;
+    z-index: 1;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fractal-board_card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, #171717e6 0%, #17171700 100%);
+    z-index: 2;
+    opacity: 0.8;
+    transition: opacity 0.4s ease;
+}
+
+.fractal-board_card:hover::before {
+    transform: scale(1.08);
+    opacity: 0.85;
+}
+
+.fractal-board_card:hover::after {
+    opacity: 0.95;
+}
+
+.fractal-board_content {
+    position: relative;
+    z-index: 3;
+    padding: 1.25rem;
+    transform: translateY(1.5rem);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fractal-board_card:hover .fractal-board_content {
+    transform: translateY(0);
+}
+
+.fractal-board_link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #8eefff;
+    font-weight: 700;
+    font-size: 1.125rem;
+    text-decoration: none;
+    text-transform: capitalize;
+    margin-bottom: 0.5rem;
+}
+
+.fractal-board_description {
+    color: #e5e7eb;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    line-height: 1.4;
+    opacity: 0;
+    transform: translateY(0.5rem);
+    transition: opacity 0.3s ease 0.1s,
+                transform 0.3s ease 0.1s;
+}
+
+.fractal-board_card:hover .fractal-board_description {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fractal-painter {
+    width: 100%;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.5rem;
+}
+
+.fractal-painter_header {
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.fractal-painter_workspace {
+    display: flex;
+    width: 100%;
+    gap: 2rem;
+    background-color: #111827;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.fractal-painter_sidebar {
+    width: 20%;
+    min-width: 240px;
+    flex-shrink: 0;
+}
+
+.fractal-painter_content {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fractal-painter_canvas-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.fractal-painter_canvas-wrapper canvas {
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+}
+
+.fractal-painter_toolbar {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 0.5rem;
+}
+
+.control-panel_input-description {
+    min-width: 3.8rem;
+    justify-content: center;
+    color: #ffffff;
+    background-color: #696969;
+}
+
+.control-panel_input-description {
+    min-width: 3.8rem;
+    justify-content: center;
+    color: #ffffff;
+    background-color: #696969;
+}
+
